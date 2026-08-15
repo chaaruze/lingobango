@@ -1,0 +1,132 @@
+:root {
+  --surface: #080808;
+  --surface-raised: #101010;
+  --text-primary: #f5f1e8;
+  --text-muted: #83817d;
+  --text-dim: #403f3c;
+  color: var(--text-primary);
+  background: var(--surface);
+  font-family: "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+}
+
+* { box-sizing: border-box; }
+
+html { min-width: 320px; min-height: 100%; background: var(--surface); scroll-behavior: smooth; }
+
+body { min-height: 100vh; margin: 0; overflow: hidden; background: var(--surface); }
+
+.app-shell { position: relative; min-height: 100dvh; }
+
+.splash-screen,
+.home-placeholder { position: absolute; inset: 0; min-height: 100dvh; overflow: hidden; }
+
+.splash-screen {
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  background:
+    linear-gradient(rgba(245, 241, 232, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 241, 232, 0.025) 1px, transparent 1px),
+    var(--surface);
+  background-size: 32px 32px;
+  animation: intro-fade-out 250ms ease-out 3.6s forwards;
+}
+
+.splash-screen::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.52) 82%);
+  content: "";
+}
+
+.splash-screen__content {
+  position: relative;
+  display: grid;
+  width: min(100% - 3rem, 1100px);
+  min-height: 10rem;
+  place-items: center;
+  text-align: center;
+}
+
+.splash-word,
+.splash-phrase {
+  grid-area: 1 / 1;
+  margin: 0;
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: clamp(0.04em, 0.7vw, 0.2em);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.splash-word {
+  opacity: 0;
+  font-size: clamp(3rem, 12vw, 9rem);
+  animation: word-appear 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.splash-word--bingo { animation-delay: 0ms; }
+.splash-word--bango { animation-delay: 480ms; }
+.splash-word--bish { animation-delay: 960ms; }
+.splash-word--bash { animation-delay: 1440ms; }
+.splash-word--bosh { animation-delay: 1920ms; }
+
+.splash-phrase { opacity: 0; font-size: clamp(1.35rem, 4.5vw, 4.5rem); animation: final-appear 280ms ease-out 2400ms forwards; }
+
+.terminal-cursor { display: inline-block; margin-left: 0.16em; color: var(--text-muted); animation: cursor-blink 800ms steps(1, end) infinite 2400ms; }
+
+.skip-button {
+  position: absolute;
+  top: clamp(1.25rem, 4vw, 2.5rem);
+  right: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid var(--text-dim);
+  padding: 0.65rem 0.8rem;
+  color: var(--text-muted);
+  background: transparent;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.skip-button:hover { border-color: var(--text-muted); color: var(--text-primary); }
+.skip-button:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 4px; }
+
+.home-placeholder {
+  z-index: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 1.25rem;
+  padding: 2rem;
+  background: var(--surface-raised);
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.home-placeholder__eyebrow { margin: 0; color: var(--text-muted); font-size: 0.7rem; letter-spacing: 0.12em; }
+.home-placeholder h1 { margin: 0; font-size: clamp(1.7rem, 6vw, 4rem); letter-spacing: 0.06em; line-height: 1.25; }
+.home-placeholder__copy { max-width: 38rem; margin: 0; color: var(--text-muted); line-height: 1.65; }
+
+.home-placeholder:target { z-index: 2; }
+
+@keyframes word-appear {
+  0% { opacity: 0; transform: scale(0.92) translateY(0.16em); }
+  24%, 72% { opacity: 1; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(1.025) translateY(-0.08em); }
+}
+
+@keyframes final-appear { from { opacity: 0; transform: translateY(0.35em); } to { opacity: 1; transform: translateY(0); } }
+@keyframes cursor-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes intro-fade-out { to { opacity: 0; pointer-events: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-screen { animation-duration: 1ms; animation-delay: 700ms; }
+  .splash-word { display: none; }
+  .splash-phrase { animation: none; opacity: 1; }
+  .terminal-cursor { animation: none; }
+}
