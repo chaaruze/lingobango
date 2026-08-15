@@ -14,18 +14,121 @@
         <div class="splash-screen__content" aria-hidden="true">
           <p class="splash-word splash-word--bingo">Bingo</p>
           <p class="splash-word splash-word--bango">Bango</p>
-          <p class="splash-word splash-word--bango">Bongo</p>
           <p class="splash-word splash-word--bish">Bish</p>
           <p class="splash-word splash-word--bash">Bash</p>
           <p class="splash-word splash-word--bosh">Bosh</p>
-          <p class="splash-phrase">Bingo Bango Bongo Bish Bash Bosh<span class="terminal-cursor">_</span></p>
+          <p class="splash-phrase">Bingo Bango Bish Bash Bosh<span class="terminal-cursor">_</span></p>
         </div>
       </section>
-      <section class="home-placeholder" id="home" aria-labelledby="home-title">
-        <p class="home-placeholder__eyebrow">COMMUNICATIONS SYSTEM // READY</p>
-        <h1 id="home-title">LINGOBANGO // COMMS ATLAS</h1>
-        <p class="home-placeholder__copy">Callouts, tactical phrases, and regional language packs are coming online.</p>
-      </section>
+      <div class="landing-page" id="home">
+        <header class="site-header">
+          <a class="brand" href="#home" aria-label="LingoBango home">LINGO<span>BANGO</span></a>
+          <nav aria-label="Primary navigation">
+            <a href="#quick-start">Quick start</a>
+            <a href="#features">Features</a>
+            <a href="#community">Community</a>
+          </nav>
+        </header>
+
+        <main>
+          <section class="hero" aria-labelledby="hero-title">
+            <div class="hero__copy">
+              <p class="eyebrow">APAC CS COMMS // BETA</p>
+              <h1 id="hero-title">Speak the round.<br /><span>Own the lobby.</span></h1>
+              <p>
+                LingoBango is a community-built atlas for callouts, tactical phrases, and local slang across Asian matchmaking.
+              </p>
+              <div class="button-group">
+                <a class="button button--primary" href="#quick-start">Start learning <span aria-hidden="true">→</span></a>
+                <a class="button button--quiet" href="#features">Explore the atlas</a>
+              </div>
+            </div>
+
+            <aside class="comms-card" aria-label="Sample callout card">
+              <div class="comms-card__topline"><span>LIVE PREVIEW</span><span>01 / 03</span></div>
+              <p class="comms-card__label">MIRAGE // MID</p>
+              <h2>Window</h2>
+              <p class="comms-card__translation">English · Mandarin · Tagalog</p>
+              <div class="comms-card__line"></div>
+              <p class="comms-card__quote">“One window, watch connector.”</p>
+              <p class="comms-card__meta">TACTICAL INTENT // MID CONTROL</p>
+            </aside>
+          </section>
+
+          <section class="quick-start" id="quick-start" aria-labelledby="quick-start-title">
+            <div>
+              <p class="eyebrow">QUICK START</p>
+              <h2 id="quick-start-title">Build your first comms pack.</h2>
+            </div>
+            <form class="quick-start__form">
+              <label>
+                Server context
+                <select aria-label="Server context">
+                  <option>Singapore</option>
+                  <option>Hong Kong</option>
+                  <option>Japan</option>
+                </select>
+              </label>
+              <label>
+                Learning language
+                <select aria-label="Learning language">
+                  <option>English</option>
+                  <option>Tagalog / Bisaya</option>
+                  <option>Bahasa Indonesia</option>
+                </select>
+              </label>
+              <a class="button button--primary" href="#features">Load sample pack <span aria-hidden="true">→</span></a>
+            </form>
+          </section>
+
+          <section class="features" id="features" aria-labelledby="features-title">
+            <div class="section-heading">
+              <p class="eyebrow">THE ATLAS</p>
+              <h2 id="features-title">Built for the information that wins rounds.</h2>
+            </div>
+            <div class="feature-grid">
+              <article class="feature-card">
+                <p class="feature-card__number">01</p>
+                <h3>Callout atlas</h3>
+                <p>Find map locations, local aliases, pronunciation, and intended tactical meaning in one place.</p>
+              </article>
+              <article class="feature-card">
+                <p class="feature-card__number">02</p>
+                <h3>Phrase drills</h3>
+                <p>Train the short, high-context messages teammates actually use between utility and rotations.</p>
+              </article>
+              <article class="feature-card">
+                <p class="feature-card__number">03</p>
+                <h3>Community packs</h3>
+                <p>Keep regional language packs current with reviewed contributions from the players who use them.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="workflow" aria-labelledby="workflow-title">
+            <div class="section-heading">
+              <p class="eyebrow">HOW IT WORKS</p>
+              <h2 id="workflow-title">From unknown callout to useful comm in seconds.</h2>
+            </div>
+            <ol>
+              <li><span>01</span><strong>Choose your server and language pair.</strong></li>
+              <li><span>02</span><strong>Look up the phrase, pin, or callout.</strong></li>
+              <li><span>03</span><strong>Listen, repeat, and take it into the next match.</strong></li>
+            </ol>
+          </section>
+
+          <section class="community-callout" id="community" aria-labelledby="community-title">
+            <p class="eyebrow">OPEN COMMUNITY PROJECT</p>
+            <h2 id="community-title">The best callouts come from the players who use them.</h2>
+            <a class="button button--primary" href="mailto:hello@lingobango.local">Join the community <span aria-hidden="true">→</span></a>
+          </section>
+        </main>
+
+        <footer class="site-footer">
+          <span>LINGOBANGO // COMMS ATLAS</span>
+          <span>UNOFFICIAL COMMUNITY PROJECT</span>
+        </footer>
+      </div>
     </main>
   </body>
 </html>
